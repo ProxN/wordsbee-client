@@ -6,12 +6,11 @@ import getError from '../../utils/getError';
 
 const AuthModel: IAuthModel = {
   /* State */
-  isLoading: false,
+  isLoading: true,
   user: null,
   error: '',
   /* Actions thunk */
   signup: thunk(async (state, data) => {
-    state.setIsloading(true);
     try {
       const { email, password, fullname } = data;
       const res = await axios.post<IUserResponse>(
@@ -59,7 +58,6 @@ const AuthModel: IAuthModel = {
 
   getUser: thunk(async (state) => {
     try {
-      state.setIsloading(true);
       const res = await axios.get<IUserResponse>(`${API_URL}/users/me`, {
         withCredentials: true,
       });
@@ -67,7 +65,7 @@ const AuthModel: IAuthModel = {
       state.setUser(res.data.data);
     } catch (error) {
       const errorMessage = getError(error);
-      state.setError(errorMessage);
+      state.setState();
     }
   }),
   /* Actions */

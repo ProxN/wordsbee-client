@@ -56,6 +56,7 @@ const AddFormWord: React.FC<Props> = ({ onClose }) => {
         <FormTitle>Add Word</FormTitle>
         {error && <Error message={error} />}
         <Input
+          focus
           placeholder='Add new word'
           name='word'
           label='Word'

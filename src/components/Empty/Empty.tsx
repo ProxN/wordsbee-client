@@ -1,5 +1,6 @@
 import React from 'react';
 import Icon from '../Icon';
+import { Link } from 'react-router-dom';
 import { EmptyBox, EmptyIcon, EmptySubTitle, EmptyTitle } from './styles';
 
 interface Props {
@@ -9,9 +10,10 @@ interface Props {
     message: string;
   };
   marginLeft?: string;
+  isAuth?: boolean;
 }
 
-const Empty: React.FC<Props> = ({ data, marginLeft }) => {
+const Empty: React.FC<Props> = ({ data, marginLeft, isAuth }) => {
   const { iconName, title, message } = data;
   return (
     <EmptyBox marginLeft={marginLeft}>
@@ -20,6 +22,12 @@ const Empty: React.FC<Props> = ({ data, marginLeft }) => {
       </EmptyIcon>
       <EmptyTitle>{title}</EmptyTitle>
       <EmptySubTitle>{message}</EmptySubTitle>
+      <br />
+      {!isAuth && (
+        <EmptyTitle as={Link} to='/'>
+          Back To Home
+        </EmptyTitle>
+      )}
     </EmptyBox>
   );
 };

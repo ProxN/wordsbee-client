@@ -19,6 +19,7 @@ interface Props {
   error?: string;
   value?: string;
   name?: string;
+  focus?: boolean;
   onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
 }
 
@@ -35,6 +36,7 @@ const Input: React.FC<Props> = (props) => {
     value,
     rounded,
     type,
+    focus,
   } = props;
   return (
     <InputContainer margin={margin}>
@@ -44,6 +46,7 @@ const Input: React.FC<Props> = (props) => {
         autoComplete='off'
         autoCorrect='off'
         name={name}
+        autoFocus={focus}
         id={name}
         fullWidth={fullWidth}
         placeholder={placeholder}

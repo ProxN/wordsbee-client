@@ -39,8 +39,7 @@ const LoginForm: React.FC = () => {
     <FormCard>
       <FormTitle>Log in</FormTitle>
       <Form onSubmit={handleSubmit}>
-        {error && <Error message={error} />}
-
+        {error && isSubmitting && <Error message={error} />}
         <Input
           label='Email'
           name='email'

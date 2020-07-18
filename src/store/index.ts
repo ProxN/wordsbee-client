@@ -1,4 +1,4 @@
-import { createStore, persist } from 'easy-peasy';
+import { createStore } from 'easy-peasy';
 import AuthModel from './auth/auth.model';
 import IStore from './store.interface';
 import WordModel from './word/word.model';
@@ -10,6 +10,6 @@ const store: IStore = {
   toast: ToastModel,
 };
 
-export default createStore<IStore>(persist(store), {
+export default createStore<IStore>(store, {
   disableImmer: true,
 });

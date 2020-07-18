@@ -17,6 +17,7 @@ import {
 const SignInForm: React.FC = () => {
   const signup = useStoreActions((state) => state.auth.signup);
   const clearError = useStoreActions((state) => state.auth.clearError);
+
   const { error, isLoading } = useStoreState(
     (state) => ({
       error: state.auth.error,
@@ -41,7 +42,7 @@ const SignInForm: React.FC = () => {
     <FormCard>
       <FormTitle>Sign up</FormTitle>
       <Form onSubmit={handleSubmit}>
-        {error && <Error message={error} />}
+        {error && isSubmitting && <Error message={error} />}
         <Input
           label='Full name'
           name='fullname'
