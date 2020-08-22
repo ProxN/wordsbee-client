@@ -8,7 +8,6 @@ const App: React.FC = () => {
   const getUser = useStoreActions((state) => state.auth.getUser);
   const isLoading = useStoreState((state) => state.auth.isLoading);
 
-  console.log('testing');
   useEffect(() => {
     const onLoad = async (): Promise<void> => {
       await getUser();
