@@ -65,7 +65,7 @@ const AuthModel: IAuthModel = {
 
       state.setUser(res.data.data);
     } catch (error) {
-      const errorMessage = getError(error);
+      getError(error);
       state.setState();
     }
   }),
