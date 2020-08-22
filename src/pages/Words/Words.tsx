@@ -10,7 +10,6 @@ const Words: React.FC = () => {
   const getWords = useStoreActions((state) => state.word.getWords);
 
   useEffect(() => {
-    console.log('GetWords Call Effect');
     const onLoad = async (): Promise<void> => {
       await getWords();
     };

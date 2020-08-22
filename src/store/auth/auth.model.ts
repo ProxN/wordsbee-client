@@ -22,6 +22,7 @@ const AuthModel: IAuthModel = {
         },
         { withCredentials: true }
       );
+
       state.setUser(res.data.data);
     } catch (error) {
       const errorMessage = getError(error);
